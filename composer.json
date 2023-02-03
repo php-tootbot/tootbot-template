@@ -17,7 +17,7 @@
 		"ext-json": "*",
 		"ext-mbstring": "*",
 		"ext-openssl": "*",
-		"php-tootbot/php-tootbot": "dev-main#d9f51ea5e1abf892a83e974054d94a93bbfd8a1a"
+		"php-tootbot/php-tootbot": "dev-main#84405c245a458780ca691e4249f8197fb27ca4c1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.5",
