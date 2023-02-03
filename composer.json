@@ -20,7 +20,7 @@
 		"php-tootbot/php-tootbot": "dev-main#84405c245a458780ca691e4249f8197fb27ca4c1"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^9.5",
+		"phpunit/phpunit": "^10.0",
 		"phan/phan": "^5.4"
 	},
 	"autoload": {
