@@ -30,7 +30,8 @@
 
 on:
   schedule:
-    # run the script every 12 hours
+    # run the script every 12th hour
+	# https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html
     - cron: "0 12 * * *"
 
 name: "Run"
@@ -49,6 +50,12 @@ jobs:
     steps:
       - name: "Checkout sources"
         uses: actions/checkout@v3
+
+      - name: "Setup cache"
+        uses: actions/cache@v3
+        with:
+          path: ./data
+          key: ${{ hashFiles('./data/**') }}
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
