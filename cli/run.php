@@ -35,22 +35,24 @@ else{
 $options = new TootBotOptions;
 
 // HTTPOptions
-$options->ca_info      = realpath(__DIR__.'/../config/cacert.pem'); // https://curl.haxx.se/ca/cacert.pem
-$options->user_agent   = 'phpTootBot/1.0 +https://github.com/php-tootbot/php-tootbot';
+$options->ca_info        = realpath(__DIR__.'/../config/cacert.pem'); // https://curl.haxx.se/ca/cacert.pem
+$options->user_agent     = 'phpTootBot/1.0 +https://github.com/php-tootbot/php-tootbot';
+$options->retries        = 3;
 
 // OAuthOptionsTrait
 // these settings are only required for authentication/remote token acquisition
-#$options->key          = $env->get('MASTODON_KEY') ?? '';
-#$options->secret       = $env->get('MASTODON_SECRET') ?? '';
-#$options->callbackURL  = $env->get('MASTODON_CALLBACK_URL') ?? '';
-#$options->sessionStart = true;
+#$options->key            = $env->get('MASTODON_KEY') ?? '';
+#$options->secret         = $env->get('MASTODON_SECRET') ?? '';
+#$options->callbackURL    = $env->get('MASTODON_CALLBACK_URL') ?? '';
+#$options->sessionStart   = true;
 
 // TootBotOptions
-$options->instance     = $instance;
-$options->apiToken     = $apiToken;
-$options->loglevel     = LogLevel::INFO;
-#$options->buildDir     = __DIR__.'/../.build';
-$options->dataDir      = __DIR__.'/../data';
+$options->instance       = $instance;
+$options->apiToken       = $apiToken;
+$options->loglevel       = LogLevel::INFO;
+#$options->buildDir       = __DIR__.'/../.build';
+$options->dataDir        = __DIR__.'/../data';
+$options->tootVisibility = 'public';
 
 // invoke the bot instance and post
 (new MyTootBot($options))->post();
