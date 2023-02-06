@@ -31,7 +31,7 @@
 on:
   schedule:
     # run the script every 12th hour
-	# https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html
+    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html
     - cron: "0 12 * * *"
 
 name: "Run"
@@ -51,12 +51,6 @@ jobs:
       - name: "Checkout sources"
         uses: actions/checkout@v3
 
-      - name: "Setup cache"
-        uses: actions/cache@v3
-        with:
-          path: ./data
-          key: ${{ hashFiles('./data/**') }}
-
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
@@ -72,6 +66,15 @@ jobs:
 
       - name: "Run bot"
         run: php ./cli/run.php
+
+      # please note that this requires read/write permissions for the actions runner!
+      - name: "Commit log"
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add data/posted.json
+          git commit -m "posted toot"
+          git push
 ```
 
 ## disclaimer
