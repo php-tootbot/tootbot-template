@@ -30,8 +30,7 @@
 
 on:
   schedule:
-    # run the script every 12th hour
-    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html
+    # POSIX cron syntax (every 12th hour), https://crontab.guru/#0_12_*_*_*
     - cron: "0 12 * * *"
 
 name: "Run"
