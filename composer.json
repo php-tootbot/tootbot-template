@@ -17,10 +17,10 @@
 		"ext-json": "*",
 		"ext-mbstring": "*",
 		"ext-openssl": "*",
-		"php-tootbot/php-tootbot": "dev-main#cf87184a13e045948d609584e530d32e3a2f9a25"
+		"php-tootbot/php-tootbot": "dev-main#6c60dcc7d74cfc093df3d72041901a3691848ea2"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^10.0",
+		"phpunit/phpunit": "^10.2",
 		"phan/phan": "^5.4"
 	},
 	"autoload": {
