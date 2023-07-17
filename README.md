@@ -6,7 +6,7 @@
 - clone this repository
 - create a mastodon account for your bot, e.g. on https://botsin.space/
 - when your account is approved, go to the [development settings](https://botsin.space/settings/applications) and create a new application
-- copy [`/config/.env_example`](./config/.env_example) to `/config/.env`
+- copy [`/config/.env_example`](./config/.env_example) to `/config/.env` (for local test, **do not upload the .env to GitHub!**)
   - copy the access token from the mastodon application and save it in the `.env` as `MASTODON_TOKEN`, go to the repository settings on GitHub under `{repo_url}/settings/secrets/actions` and save it there too (not necessary if you plan to run the bot on your own webserver)
   - save the mastodon instance URL in the `.env` as `MASTODON_INSTANCE`, save it as GitHub repository secret as well
   - if you plan to use remote authentication with the mastodon app, you will need to do the same for the client key, secret and callback-URL
@@ -69,13 +69,21 @@ jobs:
 
       # please note that this requires read/write permissions for the actions runner!
       - name: "Commit log"
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add data/posted.json
-          git commit -m "posted toot"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ":octocat: posted toot"
+          file_pattern: 'data/posted.json'
 ```
+
+## related projects
+- [php-tootbot/php-tootbot](https://github.com/php-tootbot/php-tootbot)
+	- [php-tootbot/tootbot-template](https://github.com/php-tootbot/tootbot-template)
+- [chillerlan/php-httpinterface](https://github.com/chillerlan/php-httpinterface)
+	- [chillerlan/php-http-message-utils](https://github.com/chillerlan/php-http-message-utils)
+	- [chillerlan/php-oauth-core](https://github.com/chillerlan/php-oauth-core)
+		- [chillerlan/php-oauth-providers](https://github.com/chillerlan/php-oauth-providers)
+- [chillerlan/php-settings-container](https://github.com/chillerlan/php-settings-container)
+- [chillerlan/php-dotenv](https://github.com/chillerlan/php-dotenv)
 
 ## disclaimer
 

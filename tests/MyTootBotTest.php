@@ -2,9 +2,11 @@
 /**
  * Class MyTootBotTest
  *
+ * @todo: update/change docblock
+ *
  * @created      03.02.2023
- * @author       smiley <smiley@chillerlan.net>
- * @copyright    2023 smiley
+ * @author       you
+ * @copyright    2023 you
  * @license      MIT
  */
 

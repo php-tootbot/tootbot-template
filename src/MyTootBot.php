@@ -2,23 +2,24 @@
 /**
  * Class MyTootBot
  *
+ * @todo: update/change docblock
+ *
  * @created      03.02.2023
- * @author       smiley <smiley@chillerlan.net>
- * @copyright    2023 smiley
+ * @author       you
+ * @copyright    2023 you
  * @license      MIT
  */
 
 namespace PHPTootBot\MyTootBot;
 
 use PHPTootBot\PHPTootBot\TootBot;
-use PHPTootBot\PHPTootBot\TootBotInterface;
 
 /**
  *
  */
 class MyTootBot extends TootBot{
 
-	public function post():TootBotInterface{
+	public function post():static{
 		// TODO: Implement post() method.
 
 		return $this;
