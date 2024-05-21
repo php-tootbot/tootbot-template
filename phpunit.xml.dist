@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd"
-		 bootstrap="vendor/autoload.php"
-		 cacheResultFile=".build/phpunit.result.cache"
-		 colors="true"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".build/phpunit.cache"
+         cacheResultFile=".build/phpunit.result.cache"
+         colors="true"
+         beStrictAboutCoverageMetadata="true"
 >
 	<testsuites>
-		<testsuite name="tootbot-template test suite">
-			<directory suffix=".php">./tests/</directory>
-			<!--
-			<exclude>tests/SomeAbstractClass.php</exclude>
-			-->
+		<testsuite name="tootbot test suite">
+			<directory>tests</directory>
 		</testsuite>
 	</testsuites>
 	<source>
 		<include>
-			<directory>./src</directory>
+			<directory>src</directory>
 		</include>
 	</source>
 	<coverage>
@@ -25,7 +24,7 @@
 		</report>
 	</coverage>
 	<php>
-		<!-- whether the test runs on CI  - set to false to allow debug output -->
+		<!-- whether the test runs on CI -->
 		<const name="TEST_IS_CI" value="true"/>
 	</php>
 </phpunit>

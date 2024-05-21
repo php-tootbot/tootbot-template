@@ -18,7 +18,7 @@ use PHPTootBot\PHPTootBot\TootBotOptions;
 use PHPUnit\Framework\TestCase;
 
 /**
- *
+ * Tests the `MyTootBot` class
  */
 class MyTootBotTest extends TestCase{
 

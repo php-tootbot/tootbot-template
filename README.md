@@ -42,13 +42,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # requiired for stefanzweifel/git-auto-commit-action
+    permissions:
+      contents: write
+
     env:
       MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
       MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
 
     steps:
       - name: "Checkout sources"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -58,7 +62,7 @@ jobs:
           extensions: curl, json, mbstring, openssl, sodium
 
       - name: "Install dependencies with composer"
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: "Fetch cacert.pem from curl.haxx.se"
         run: wget -O config/cacert.pem https://curl.se/ca/cacert.pem
@@ -68,10 +72,13 @@ jobs:
 
       # please note that this requires read/write permissions for the actions runner!
       - name: "Commit log"
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: ":octocat: posted toot"
           file_pattern: 'data/posted.json'
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
 ```
 
 ## related projects
